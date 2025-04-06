@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 
-app = Flask()
+app = Flask(__name__)
 REMOTE_API = "http://149.165.150.300"
 
 # Local endpoint
@@ -35,3 +35,6 @@ def combined_data():
     }
     
     return jsonify(combined)
+
+if __name__ == "__main__": 
+    app.run(port=5000, debug=True, host='149.165.150.300')
